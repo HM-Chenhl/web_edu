@@ -45,23 +45,36 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    #内置的安全机制，保护用户与网站的通信安全
     'django.middleware.security.SecurityMiddleware',
+    #会话Session功能
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #处理请求信息，规范化请求内容
     'django.middleware.common.CommonMiddleware',
+    #开启CSRE防护功能
     'django.middleware.csrf.CsrfViewMiddleware',
+    #开启内置的用户认证系统
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #开启内置的信息提示功能
     'django.contrib.messages.middleware.MessageMiddleware',
+    #防止恶意程序单击劫持
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'HelloWorld.mymid.md1.Md1'
 ]
 
 ROOT_URLCONF = 'djangoProject_1.urls'
 
 TEMPLATES = [
     {
+        #定义模板引擎，用于识别模板里面的变量和指令。内置的模板引擎有D]angoTemplates和jinja2.jinja2，
+        # 每个模板引擎都有自己的变显和指令语法。
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':[BASE_DIR/'templates']
-        ,
+        #设置模板所在路径，告诉Django在哪个地方查找模板的位置，默认为空列表。
+        'DIRS':[BASE_DIR/'templates',BASE_DIR/'HelloWorld/templates'],
+        #是否在App里查找模板文件
         'APP_DIRS': True,
+        #用于填充在RequestContext的上下文(模板里面的变量和指令)，一般情况下不做任何修改。
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -81,8 +94,12 @@ WSGI_APPLICATION = 'djangoProject_1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tb_web_edu',
+        'USER':'root',
+        'PASSWORD':'123456',
+        'HOST':'localhost',
+        'PORT':'3306'
     }
 }
 

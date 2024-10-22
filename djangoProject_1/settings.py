@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'HelloWorld.mymid.md1.Md1'
 ]
 
+#它指定了当前项目的根URL,是 Django路由系统的入口。
 ROOT_URLCONF = 'djangoProject_1.urls'
 
 TEMPLATES = [
@@ -86,6 +87,7 @@ TEMPLATES = [
     },
 ]
 
+#项目部署时，Django的内置服务器将使用的WSGI应用程序对象的完整Python路径,
 WSGI_APPLICATION = 'djangoProject_1.wsgi.application'
 
 
@@ -106,7 +108,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
+#这是一个支持插拔的密码验证器，且可以一次性配置多个，Django通过这些内置组件来避免用户设置的密码等级不足的问题,
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -125,13 +127,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
-
+#语言配置项
+#英文'en-us' 中文'zh-Hans'
 LANGUAGE_CODE = 'en-us'
-
+#服务端时区配置项
+#世界时区UTC 中国时区Asia/Shanghai
 TIME_ZONE = 'UTC'
-
+#项目开发完成后，可以选择向不同国家的用户提供服务，那么就需要支持国际化和本地化。
 USE_I18N = True
-
+#它指对时区的处理方式，当设置为True的时候，存储到数据库的时间是世界时间UTC.
 USE_TZ = True
 
 
@@ -141,7 +145,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 #设置静态资源文件集合
-STATICFILES_DIRS =[BASE_DIR /"static",BASE_DIR /"HelloWorld/images"]
+STATICFILES_DIRS =[BASE_DIR /"static",BASE_DIR /"HelloWorld/images",BASE_DIR /"common"]
 
 #设置媒体路由
 MEDIA_URL = 'media/'
@@ -152,5 +156,5 @@ MEDIA_ROOT= BASE_DIR/'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
+#默认主键自增类型
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

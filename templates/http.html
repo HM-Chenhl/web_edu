@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/get?name=123&pas=123456" target="_blank">http get 请求测试</a><br>
+<form action="/post" method="post">
+    {% csrf_token %}
+    name:<input type="text" name="name">
+    pas:<input type="text" name="pas">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

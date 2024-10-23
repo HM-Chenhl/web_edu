@@ -39,6 +39,13 @@ urlpatterns = [
     path('download3/',HelloWorld.views.down_file_3),
 
     path('get',HelloWorld.views.get_test),
-    path('post',HelloWorld.views.post_test)
+    path('post',HelloWorld.views.post_test),
+    path('toLogin/',HelloWorld.views.to_login),
+    path('login',HelloWorld.views.login),
+    path('toUpload/',HelloWorld.views.to_upload),
+    path('upload',HelloWorld.views.upload),
+
+    path('student/list',HelloWorld.views.List.as_view()),
+    path('student/<int:pk>',HelloWorld.views.Detail.as_view())
 
 ]
